@@ -1,0 +1,11 @@
+{
+  "name": "tyler-grey-demo",
+  "version": "1.0.0",
+  "description": "Tyler Grey concept demo",
+  "scripts": {
+    "start": "npx serve . -p $PORT"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}

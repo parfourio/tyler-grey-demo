@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tyler Grey | Delta Force · Actor · Author</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:       #080808;
+      --dark:        #0e0e0e;
+      --dark-card:   #161616;
+      --dark-border: #242424;
+      --steel:       #3a5f80;
+      --steel-light: #5580a0;
+      --steel-pale:  rgba(58,95,128,0.12);
+      --amber:       #c8943a;
+      --amber-light: #dba84e;
+      --amber-pale:  rgba(200,148,58,0.1);
+      --white:       #f0ede8;
+      --white-mid:   rgba(240,237,232,0.65);
+      --white-dim:   rgba(240,237,232,0.3);
+      --text-mid:    #8a8078;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── BANNER ── */
+    .outreach-banner {
+      background: linear-gradient(90deg, #1a2e40, #1e3a50, #1a2e40);
+      border-bottom: 1px solid var(--steel);
+      color: rgba(240,237,232,0.9);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      font-weight: 400;
+      position: relative;
+      z-index: 1000;
+    }
+
+    .outreach-banner a {
+      display: inline-block;
+      background: var(--amber);
+      color: var(--black);
+      padding: 6px 16px;
+      border-radius: 2px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+    .outreach-banner a:hover { background: var(--amber-light); }
+
+    /* ── NAV ── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: rgba(8,8,8,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--dark-border);
+    }
+
+    .nav-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      letter-spacing: 0.1em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--amber); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--white-mid);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--amber-light); }
+    .nav-links .nav-cta a {
+      background: var(--amber);
+      color: var(--black);
+      padding: 7px 16px;
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .nav-links .nav-cta a:hover { background: var(--amber-light); color: var(--black); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 1px;
+      transition: transform 0.3s, opacity 0.3s;
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      align-items: center;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      gap: 60px;
+      position: relative;
+    }
+
+    /* full-bleed dark bg behind hero */
+    .hero-section {
+      background: var(--dark);
+      border-bottom: 1px solid var(--dark-border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 70% 50%, rgba(58,95,128,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(200,148,58,0.04) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .hero-eyebrow-line { width: 36px; height: 1px; background: var(--amber); }
+    .hero-eyebrow-text {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(64px, 8vw, 110px);
+      line-height: 0.92;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      margin-bottom: 8px;
+    }
+    .hero h1 .line-amber { color: var(--amber); display: block; }
+    .hero h1 .line-steel { color: var(--steel-light); display: block; }
+
+    .hero-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--amber), var(--steel));
+      margin: 20px 0;
+    }
+
+    .hero-roles {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .hero-role {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white-mid);
+      border: 1px solid var(--dark-border);
+      padding: 4px 12px;
+      border-radius: 2px;
+      background: var(--dark-card);
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: var(--white-mid);
+      line-height: 1.75;
+      max-width: 520px;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .btn-amber {
+      display: inline-block;
+      background: var(--amber);
+      color: var(--black);
+      padding: 13px 28px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-amber:hover { background: var(--amber-light); transform: translateY(-1px); }
+
+    .btn-steel {
+      display: inline-block;
+      border: 1px solid var(--steel);
+      color: var(--steel-light);
+      padding: 13px 28px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-steel:hover { background: var(--steel-pale); color: var(--white); }
+
+    /* Hero photo */
+    .hero-photo-wrap { position: relative; }
+
+    .hero-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border-radius: 2px;
+      filter: grayscale(20%) contrast(1.05);
+    }
+
+    .hero-photo-frame {
+      position: absolute;
+      inset: -1px;
+      border: 1px solid rgba(200,148,58,0.2);
+      border-radius: 3px;
+      pointer-events: none;
+    }
+
+    .hero-photo-accent {
+      position: absolute;
+      bottom: -16px;
+      left: -16px;
+      right: 16px;
+      top: 16px;
+      border: 1px solid rgba(58,95,128,0.2);
+      border-radius: 2px;
+      z-index: -1;
+    }
+
+    .hero-photo-badge {
+      position: absolute;
+      bottom: 20px;
+      left: -20px;
+      background: var(--dark-card);
+      border: 1px solid var(--amber);
+      padding: 12px 16px;
+      border-radius: 2px;
+      z-index: 2;
+    }
+    .hero-photo-badge-top {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      color: var(--amber);
+      letter-spacing: 0.06em;
+      line-height: 1;
+    }
+    .hero-photo-badge-sub {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      margin-top: 3px;
+    }
+
+    /* ── TICKER ── */
+    .ticker {
+      background: var(--dark-card);
+      border-top: 1px solid var(--amber);
+      border-bottom: 1px solid var(--dark-border);
+      overflow: hidden;
+      padding: 10px 0;
+    }
+    .ticker-track {
+      display: flex;
+      animation: ticker 32s linear infinite;
+      width: max-content;
+    }
+    .ticker-item {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white-mid);
+      padding: 0 28px;
+      white-space: nowrap;
+    }
+    .ticker-amber { color: var(--amber); }
+    .ticker-sep { color: var(--dark-border); padding: 0 8px; }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ── STATS ── */
+    .stats-strip {
+      background: var(--black);
+      border-bottom: 1px solid var(--dark-border);
+    }
+    .stats-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
+    .stat-item {
+      padding: 32px 20px;
+      text-align: center;
+      border-right: 1px solid var(--dark-border);
+      position: relative;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 25%; right: 25%;
+      height: 1px;
+      background: var(--amber);
+      opacity: 0.4;
+    }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 40px;
+      color: var(--amber);
+      line-height: 1;
+      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+    }
+    .stat-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+    }
+
+    /* ── SECTION COMMONS ── */
+    section { scroll-margin-top: 60px; }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .eyebrow-line { width: 28px; height: 1px; background: var(--amber); }
+    .eyebrow-text {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+
+    /* ── BOOK ── */
+    .book-section {
+      padding: 100px 24px;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .book-section::after {
+      content: '';
+      position: absolute;
+      top: -300px; right: -300px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(200,148,58,0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .book-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .book-cover-wrap { position: relative; }
+    .book-cover-mockup {
+      background: linear-gradient(150deg, #181008, #100a04);
+      border: 1px solid rgba(200,148,58,0.2);
+      border-radius: 3px;
+      padding: 44px 32px;
+      text-align: center;
+      box-shadow: 8px 8px 40px rgba(0,0,0,0.7), -2px -2px 0 rgba(200,148,58,0.05);
+      position: relative;
+    }
+    .book-cover-mockup::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--amber), var(--steel));
+    }
+    .book-cover-eyebrow {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 20px;
+    }
+    .book-cover-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 38px;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .book-cover-sub {
+      font-size: 11px;
+      color: var(--text-mid);
+      font-style: italic;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+    .book-cover-divider {
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--amber), var(--steel));
+      margin: 0 auto 16px;
+    }
+    .book-cover-author {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16px;
+      color: var(--white-mid);
+      letter-spacing: 0.14em;
+    }
+    .book-cover-publisher {
+      font-size: 9px;
+      color: var(--text-mid);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+
+    .book-content h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(44px, 5vw, 68px);
+      color: var(--white);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      margin-bottom: 8px;
+    }
+    .book-content h2 span { color: var(--amber); }
+    .book-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-style: italic;
+      color: var(--text-mid);
+      margin-bottom: 28px;
+    }
+    .book-desc {
+      font-size: 15px;
+      color: var(--white-mid);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+    .book-quote {
+      border-left: 2px solid var(--amber);
+      padding: 16px 20px;
+      background: var(--dark-card);
+      border-radius: 0 2px 2px 0;
+      margin: 28px 0;
+    }
+    .book-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.6;
+    }
+    .book-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+
+    /* ── STORY ── */
+    .story-section {
+      padding: 100px 24px;
+      background: var(--black);
+    }
+    .story-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .story-left h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(42px, 4.5vw, 64px);
+      color: var(--white);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      margin-bottom: 24px;
+    }
+    .story-left h2 span { color: var(--amber); }
+    .story-body {
+      font-size: 15px;
+      color: var(--white-mid);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+    .story-milestone {
+      display: flex;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--dark-border);
+      align-items: flex-start;
+    }
+    .story-milestone:first-of-type { border-top: 1px solid var(--dark-border); }
+    .story-year {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      color: var(--amber);
+      letter-spacing: 0.06em;
+      flex-shrink: 0;
+      line-height: 1.1;
+      min-width: 60px;
+    }
+    .story-milestone-text {
+      font-size: 13px;
+      color: var(--white-mid);
+      line-height: 1.65;
+    }
+    .story-milestone-title {
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 3px;
+    }
+
+    /* ── LTSD ── */
+    .ltsd-section {
+      padding: 100px 24px;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+    .ltsd-section::before {
+      content: 'LTSD';
+      position: absolute;
+      top: -20px; right: -30px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 260px;
+      color: rgba(58,95,128,0.04);
+      line-height: 1;
+      pointer-events: none;
+      letter-spacing: 0.06em;
+    }
+    .ltsd-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .ltsd-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 56px;
+    }
+    .ltsd-header h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(44px, 5vw, 68px);
+      color: var(--white);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+    }
+    .ltsd-header h2 span { color: var(--steel-light); }
+    .ltsd-header p {
+      font-size: 15px;
+      color: var(--white-mid);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+    .ltsd-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .ltsd-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-top: 2px solid var(--steel);
+      border-radius: 2px;
+      padding: 28px 24px;
+      transition: border-color 0.25s;
+    }
+    .ltsd-card:hover { border-color: var(--steel-light); }
+    .ltsd-card-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 40px;
+      color: var(--steel-light);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      margin-bottom: 12px;
+      opacity: 0.5;
+    }
+    .ltsd-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+      letter-spacing: 0.04em;
+    }
+    .ltsd-card p {
+      font-size: 13px;
+      color: var(--white-mid);
+      line-height: 1.65;
+    }
+
+    /* ── SEAL TEAM ── */
+    .seal-section {
+      padding: 100px 24px;
+      background: var(--black);
+    }
+    .seal-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .seal-right h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(42px, 4.5vw, 64px);
+      color: var(--white);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      margin-bottom: 20px;
+    }
+    .seal-right h2 span { color: var(--steel-light); }
+    .seal-right p {
+      font-size: 15px;
+      color: var(--white-mid);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+    .seal-roles {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--dark-border);
+      margin: 24px 0 32px;
+    }
+    .seal-role-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--dark-border);
+      font-size: 13px;
+      color: var(--white-mid);
+    }
+    .seal-role-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--steel-light);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .seal-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 2px;
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .seal-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--steel), transparent);
+    }
+    .seal-card-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+    .seal-card-sub {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--steel-light);
+      margin-bottom: 16px;
+    }
+    .seal-card p {
+      font-size: 13px;
+      color: var(--white-mid);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .seal-seasons {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .seal-season {
+      background: rgba(58,95,128,0.12);
+      border: 1px solid rgba(58,95,128,0.25);
+      padding: 4px 12px;
+      border-radius: 2px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--steel-light);
+    }
+
+    /* ── SPEAKING ── */
+    .speaking-section {
+      padding: 100px 24px;
+      background: var(--dark);
+    }
+    .speaking-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .speaking-left h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(42px, 4.5vw, 62px);
+      color: var(--white);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      margin-bottom: 20px;
+    }
+    .speaking-left h2 span { color: var(--amber); }
+    .speaking-left p {
+      font-size: 15px;
+      color: var(--white-mid);
+      line-height: 1.8;
+      margin-bottom: 32px;
+      font-weight: 300;
+    }
+    .speaking-topics {
+      border-top: 1px solid var(--dark-border);
+    }
+    .speaking-topic {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--dark-border);
+      font-size: 13px;
+      color: var(--white-mid);
+      line-height: 1.5;
+    }
+    .speaking-dot {
+      width: 4px;
+      height: 4px;
+      background: var(--amber);
+      border-radius: 50%;
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+    .speaking-right {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 2px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .speaking-right::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--amber), transparent);
+    }
+    .speaking-right h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      margin-bottom: 14px;
+    }
+    .speaking-right p {
+      font-size: 14px;
+      color: var(--white-mid);
+      line-height: 1.75;
+      margin-bottom: 28px;
+      font-weight: 300;
+    }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      padding: 100px 24px;
+      background: var(--black);
+    }
+    .contact-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .contact-inner h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(40px, 4vw, 60px);
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+    }
+    .contact-inner > p {
+      font-size: 15px;
+      color: var(--white-mid);
+      line-height: 1.75;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+    .contact-form {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 2px;
+      padding: 36px;
+      text-align: left;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: var(--dark);
+      border: 1px solid var(--dark-border);
+      border-radius: 2px;
+      padding: 11px 14px;
+      font-size: 14px;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: rgba(200,148,58,0.4); }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-group select option { background: var(--dark); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-submit {
+      width: 100%;
+      background: var(--amber);
+      color: var(--black);
+      border: none;
+      padding: 13px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s;
+      margin-top: 4px;
+    }
+    .form-submit:hover { background: var(--amber-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid var(--dark-border);
+      padding: 48px 24px 28px;
+    }
+    .footer-inner { max-width: 1160px; margin: 0 auto; }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--dark-border);
+      margin-bottom: 20px;
+    }
+    .footer-brand {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 26px;
+      color: var(--white);
+      letter-spacing: 0.08em;
+    }
+    .footer-brand span { color: var(--amber); }
+    .footer-tagline {
+      font-size: 11px;
+      color: var(--white-dim);
+      margin-top: 4px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .footer-links a {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--amber-light); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-copy { font-size: 11px; color: var(--white-dim); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 60px; }
+      .hero-photo-wrap { display: none; }
+      .stats-inner { grid-template-columns: repeat(3, 1fr); }
+      .stat-item:nth-child(3) { border-right: none; }
+      .stat-item:nth-child(4),
+      .stat-item:nth-child(5) { border-top: 1px solid var(--dark-border); }
+      .book-inner,
+      .story-inner,
+      .seal-inner,
+      .speaking-inner { grid-template-columns: 1fr; gap: 48px; }
+      .ltsd-header { grid-template-columns: 1fr; gap: 24px; }
+      .ltsd-cards { grid-template-columns: 1fr 1fr; }
+      .footer-top { flex-direction: column; gap: 20px; }
+    }
+
+    @media (max-width: 640px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px; left: 0; right: 0;
+        background: var(--dark);
+        border-top: 1px solid var(--dark-border);
+        flex-direction: column;
+        padding: 16px 24px;
+        gap: 0;
+        box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a { display: block; padding: 12px 0; border-bottom: 1px solid var(--dark-border); font-size: 13px; }
+      .nav-links .nav-cta a { border: none; background: none; color: var(--amber); }
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .stat-item { border-right: none !important; border-bottom: 1px solid var(--dark-border); }
+      .stat-item:nth-child(odd) { border-right: 1px solid var(--dark-border) !important; }
+      .ltsd-cards { grid-template-columns: 1fr; }
+      .hero-ctas { flex-direction: column; align-items: flex-start; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BANNER -->
+  <div class="outreach-banner">
+    <span>Tyler — your site is down. I built this for you. Let me know what you think.</span>
+    <a href="mailto:scott.michael.schultz@gmail.com">Reply to Scott →</a>
+  </div>
+
+  <!-- NAV -->
+  <nav class="site-nav" id="top">
+    <div class="nav-inner">
+      <a href="#top" class="nav-logo">Tyler <span>Grey</span></a>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#story">Story</a></li>
+        <li><a href="#book">Book</a></li>
+        <li><a href="#seal-team">SEAL Team</a></li>
+        <li><a href="#speaking">Speaking</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="nav-cta"><a href="https://www.amazon.com/Forged-Chaos-Warriors-Origin-Story/dp/B0DZVXDGLC" target="_blank">Order the Book</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero-section">
+    <div class="hero" id="home">
+      <div>
+        <div class="hero-eyebrow">
+          <div class="hero-eyebrow-line"></div>
+          <span class="hero-eyebrow-text">Delta Force · Actor · Author · Director</span>
+        </div>
+        <h1>
+          <span>Tyler</span>
+          <span class="line-amber">Grey.</span>
+        </h1>
+        <div class="hero-divider"></div>
+        <div class="hero-roles">
+          <span class="hero-role">75th Ranger Regiment</span>
+          <span class="hero-role">Delta Force Operator</span>
+          <span class="hero-role">SEAL Team · Trent Sawyer</span>
+          <span class="hero-role">Author · Forged in Chaos</span>
+        </div>
+        <p class="hero-desc">Former Tier 1 Delta Force operator. Wounded in Baghdad, 2005. Four years rebuilding. Now an actor, director, producer on CBS/Paramount+ SEAL Team — and a leading voice on veterans' mental health and the LTSD theory that's reframing how we understand combat trauma.</p>
+        <div class="hero-ctas">
+          <a href="#book" class="btn-amber">Forged in Chaos</a>
+          <a href="#story" class="btn-steel">The Full Story</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <img class="hero-photo"
+          src="https://static.wixstatic.com/media/19e0d5_c385ee73304b403db4fe2df0926aaf58~mv2.jpg"
+          alt="Tyler Grey" />
+        <div class="hero-photo-frame"></div>
+        <div class="hero-photo-accent"></div>
+        <div class="hero-photo-badge">
+          <div class="hero-photo-badge-top">Trent Sawyer</div>
+          <div class="hero-photo-badge-sub">Bravo 4 · SEAL Team CBS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-track">
+      <span class="ticker-item ticker-amber">Forged in Chaos</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">Simon &amp; Schuster · 2025</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item ticker-amber">Delta Force Operator</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">75th Ranger Regiment · Sniper</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item ticker-amber">Trent Sawyer · Bravo 4</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">SEAL Team · CBS · Paramount+</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item ticker-amber">LTSD Theory</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">Veterans Mental Health Advocate</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item ticker-amber">Forged in Chaos</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">Simon &amp; Schuster · 2025</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item ticker-amber">Delta Force Operator</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">75th Ranger Regiment · Sniper</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item ticker-amber">Trent Sawyer · Bravo 4</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">SEAL Team · CBS · Paramount+</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item ticker-amber">LTSD Theory</span>
+      <span class="ticker-sep">✦</span>
+      <span class="ticker-item">Veterans Mental Health Advocate</span>
+      <span class="ticker-sep">✦</span>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-strip">
+    <div class="stats-inner">
+      <div class="stat-item">
+        <div class="stat-num">1998</div>
+        <div class="stat-label">Enlisted</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Combat Deployments</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Disabled · Baghdad 2005</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">7+</div>
+        <div class="stat-label">Seasons · SEAL Team</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">2025</div>
+        <div class="stat-label">Forged in Chaos</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOOK -->
+  <section class="book-section" id="book">
+    <div class="book-inner">
+      <div class="book-cover-wrap">
+        <div class="book-cover-mockup">
+          <div class="book-cover-eyebrow">✦ Now Available ✦</div>
+          <div class="book-cover-title">Forged in Chaos</div>
+          <div class="book-cover-sub">A Warrior's Origin Story</div>
+          <div class="book-cover-divider"></div>
+          <div class="book-cover-author">Tyler Grey</div>
+          <div class="book-cover-publisher">Simon &amp; Schuster · Permuted Press · 2025</div>
+        </div>
+      </div>
+      <div class="book-content">
+        <div class="eyebrow" style="margin-bottom:16px">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">New Book · 2025</span>
+        </div>
+        <h2>Forged in <span>Chaos.</span></h2>
+        <p class="book-subtitle">A Warrior's Origin Story · Co-authored with Lauren Ungeldi</p>
+        <p class="book-desc">Tyler Grey was the epitome of the warrior archetype — a Delta Force operator, a master of counterterrorism. Then an explosion in Baghdad changed everything. But the war didn't end when the Army sent him home. It just moved inside his head.</p>
+        <p class="book-desc">In this raw, anti-heroic memoir, Tyler dissects his life from the inside out — exposing the unseen war within and asking the question nobody wants to answer: What happens when the very abilities that made you a superhero in the eyes of the world turn you into a supervillain in your own life?</p>
+        <div class="book-quote">
+          <p>"Despite rising PTSD awareness, we're losing more warriors at home than in war. What if we've fundamentally misunderstood this disease? This book doesn't challenge the narrative — it destroys it."</p>
+        </div>
+        <div class="book-ctas">
+          <a href="https://www.amazon.com/Forged-Chaos-Warriors-Origin-Story/dp/B0DZVXDGLC" target="_blank" class="btn-amber">Order on Amazon</a>
+          <a href="https://www.barnesandnoble.com/w/forged-in-chaos-tyler-grey/1147111930" target="_blank" class="btn-steel">Barnes &amp; Noble</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story-section" id="story">
+    <div class="story-inner">
+      <div class="story-left">
+        <div class="eyebrow" style="margin-bottom:16px">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">The Story</span>
+        </div>
+        <h2>From Baghdad<br>to <span>Hollywood.</span></h2>
+        <p class="story-body">Tyler Grey grew up in Bakersfield, California. In 1998 he enlisted in the Army and never looked back — rising through the 75th Ranger Regiment as a sniper before being selected for Delta Force, the most elite counterterrorism unit in the world.</p>
+        <p class="story-body">He deployed four times — twice to Afghanistan, twice to Iraq. In 2005, during a late-night house raid and gun battle in Baghdad, he was catastrophically wounded by an explosion. He was medically retired at 100% disability and spent four years rebuilding his body, his mind, and his identity.</p>
+        <p class="story-body">What came next was unexpected: a path through Hollywood not as a consultant but as a storyteller — actor, producer, director — and ultimately as one of the most compelling voices in the conversation about what war actually does to the people who fight it.</p>
+      </div>
+      <div>
+        <div class="story-milestone">
+          <div class="story-year">1998</div>
+          <div class="story-milestone-text">
+            <div class="story-milestone-title">Enlisted · US Army</div>
+            Grows up in Bakersfield, CA. Enlists and advances rapidly into the 75th Ranger Regiment, 2nd Battalion as a sniper.
+          </div>
+        </div>
+        <div class="story-milestone">
+          <div class="story-year">2001</div>
+          <div class="story-milestone-text">
+            <div class="story-milestone-title">First Deployments · Afghanistan</div>
+            Deploys to Afghanistan following 9/11. Begins building the operational record that would lead to Delta Force selection.
+          </div>
+        </div>
+        <div class="story-milestone">
+          <div class="story-year">2003</div>
+          <div class="story-milestone-text">
+            <div class="story-milestone-title">Delta Force · Tier 1 Operator</div>
+            Selected for 1st SFOD-D (Delta Force). Deploys to Iraq as a counterterrorism operator at the tip of the spear.
+          </div>
+        </div>
+        <div class="story-milestone">
+          <div class="story-year">2005</div>
+          <div class="story-milestone-text">
+            <div class="story-milestone-title">Baghdad · The Explosion</div>
+            Catastrophically wounded during a nighttime raid in Sadr City. Medically retired at 100% disability. Four years of recovery begin.
+          </div>
+        </div>
+        <div class="story-milestone">
+          <div class="story-year">2017</div>
+          <div class="story-milestone-text">
+            <div class="story-milestone-title">SEAL Team · CBS</div>
+            Cast as Trent Sawyer (Bravo 4) in CBS's SEAL Team. Also serves as technical advisor, producer, and director across 7+ seasons.
+          </div>
+        </div>
+        <div class="story-milestone">
+          <div class="story-year">2025</div>
+          <div class="story-milestone-text">
+            <div class="story-milestone-title">Forged in Chaos · Simon &amp; Schuster</div>
+            Publishes his raw, groundbreaking memoir — and introduces the LTSD theory that challenges everything we think we know about combat trauma.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LTSD -->
+  <section class="ltsd-section" id="ltsd">
+    <div class="ltsd-inner">
+      <div class="ltsd-header">
+        <div>
+          <div class="eyebrow" style="margin-bottom:16px">
+            <div class="eyebrow-line"></div>
+            <span class="eyebrow-text">The LTSD Theory</span>
+          </div>
+          <h2>What if we've been<br>wrong about <span>PTSD?</span></h2>
+        </div>
+        <p>Tyler developed the LTSD (Lack of Traumatic Stress Disorder) theory — a groundbreaking framework that explains chaos addiction and the neurological rewiring that occurs over years of combat exposure. For the first time, veterans have a way to understand why coming home feels more dangerous than going to war.</p>
+      </div>
+      <div class="ltsd-cards">
+        <div class="ltsd-card">
+          <div class="ltsd-card-num">01</div>
+          <h3>The Chaos Addiction</h3>
+          <p>Combat rewires the brain to require extreme stimulation. When warriors return to civilian life, the absence of chaos creates a neurological void that manifests as aggression, risk-seeking, and self-destruction.</p>
+        </div>
+        <div class="ltsd-card">
+          <div class="ltsd-card-num">02</div>
+          <h3>The Identity Collapse</h3>
+          <p>The warrior identity — the most powerful self-concept a person can hold — is surgically removed at discharge. LTSD theory explains why this loss is as traumatic as any combat wound.</p>
+        </div>
+        <div class="ltsd-card">
+          <div class="ltsd-card-num">03</div>
+          <h3>A New Framework</h3>
+          <p>Rather than treating veterans as broken, LTSD reframes the problem: their nervous systems were optimized for an environment that no longer exists. The solution is recalibration, not pathology.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEAL TEAM -->
+  <section class="seal-section" id="seal-team">
+    <div class="seal-inner">
+      <div class="seal-card">
+        <div class="seal-card-title">SEAL Team</div>
+        <div class="seal-card-sub">CBS · Paramount+ · 2017–Present</div>
+        <p>One of the most authentic military dramas in television history — because the people making it actually lived it. Tyler Grey is not just an actor on this show. He is part of the spine of its production.</p>
+        <p>Along with other Special Operations veterans, Tyler is involved in every aspect of production to ensure authenticity at a level television has never seen before.</p>
+        <div class="seal-seasons">
+          <span class="seal-season">Actor</span>
+          <span class="seal-season">Producer</span>
+          <span class="seal-season">Director</span>
+          <span class="seal-season">Tech Advisor</span>
+          <span class="seal-season">7+ Seasons</span>
+        </div>
+      </div>
+      <div class="seal-right">
+        <div class="eyebrow" style="margin-bottom:16px">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">On Screen</span>
+        </div>
+        <h2>Trent Sawyer.<br><span>Bravo 4.</span></h2>
+        <p>Tyler plays Trent Sawyer, the medic on Bravo Team — a role he brings to life with lived experience no acting coach could provide. The character's composure under fire, his precision, his quiet intensity — that's not performance. That's muscle memory.</p>
+        <p>In Season 3 he made his directorial debut with "Unbecoming an Officer" — extending his influence behind the camera. His work on the show has redefined what military authenticity looks like on screen.</p>
+        <div class="seal-roles">
+          <div class="seal-role-item"><div class="seal-role-dot"></div>Cast as Trent Sawyer (Bravo 4) — Season 1 to present</div>
+          <div class="seal-role-item"><div class="seal-role-dot"></div>Technical Advisor — ensuring operational accuracy every episode</div>
+          <div class="seal-role-item"><div class="seal-role-dot"></div>Producer — shaping narrative from the inside</div>
+          <div class="seal-role-item"><div class="seal-role-dot"></div>Director — debut S3 "Unbecoming an Officer"</div>
+          <div class="seal-role-item"><div class="seal-role-dot"></div>Guest on Jon Bernthal's Real Ones podcast</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEAKING -->
+  <section class="speaking-section" id="speaking">
+    <div class="speaking-inner">
+      <div class="speaking-left">
+        <div class="eyebrow" style="margin-bottom:16px">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">Speaking &amp; Advocacy</span>
+        </div>
+        <h2>A voice that<br>changes <span>rooms.</span></h2>
+        <p>Tyler speaks from a place almost no one else can reach — the intersection of Tier 1 combat experience, catastrophic injury, Hollywood storytelling, and a groundbreaking theory about how we've been getting veterans' mental health wrong for decades.</p>
+        <div class="speaking-topics">
+          <div class="speaking-topic"><div class="speaking-dot"></div>LTSD, chaos addiction, and the neurological reality of combat veterans</div>
+          <div class="speaking-topic"><div class="speaking-dot"></div>Identity, loss, and rebuilding life after catastrophic injury</div>
+          <div class="speaking-topic"><div class="speaking-dot"></div>The warrior-to-civilian transition — and why it's killing more people than war</div>
+          <div class="speaking-topic"><div class="speaking-dot"></div>Authenticity in leadership, performance, and storytelling</div>
+          <div class="speaking-topic"><div class="speaking-dot"></div>Veterans' mental health reform and systemic change</div>
+        </div>
+        <div style="margin-top:28px">
+          <a href="#contact" class="btn-amber">Send a Speaking Inquiry</a>
+        </div>
+      </div>
+      <div class="speaking-right">
+        <h3>Book Tyler to speak at your next event.</h3>
+        <p>Keynotes, conferences, corporate events, military organizations, universities, and media appearances. Tyler brings a rare combination of raw honesty, strategic intelligence, and the kind of earned credibility that only comes from having actually been there.</p>
+        <a href="#contact" class="btn-amber">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <div class="eyebrow" style="justify-content:center; margin-bottom:14px">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Contact</span>
+        <div class="eyebrow-line"></div>
+      </div>
+      <h2>Get in Touch.</h2>
+      <p>Speaking inquiries, media and press, book events, podcast appearances, or general messages — fill out the form and Tyler's team will be in touch.</p>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="Jane" /></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" /></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="jane@email.com" /></div>
+        <div class="form-group">
+          <label>Inquiry Type</label>
+          <select>
+            <option value="">Select...</option>
+            <option>Speaking / Keynote Inquiry</option>
+            <option>Media / Press</option>
+            <option>Podcast / Interview</option>
+            <option>Book Event</option>
+            <option>Veterans Advocacy</option>
+            <option>General Message</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Tell Tyler what's on your mind..."></textarea></div>
+        <button class="form-submit">Send Message</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">Tyler <span>Grey</span></div>
+          <div class="footer-tagline">Delta Force · SEAL Team · Forged in Chaos</div>
+        </div>
+        <div class="footer-links">
+          <a href="#story">Story</a>
+          <a href="#book">Book</a>
+          <a href="#seal-team">SEAL Team</a>
+          <a href="#ltsd">LTSD</a>
+          <a href="#speaking">Speaking</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 Tyler Grey. All rights reserved.</p>
+        <p class="footer-copy" style="font-style:italic; color:var(--amber); opacity:0.6;">Forged in Chaos — Available Now</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks  = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
